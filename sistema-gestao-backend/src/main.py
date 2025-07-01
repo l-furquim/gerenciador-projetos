@@ -17,9 +17,6 @@ from routes.time_entries import time_entries_bp
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
 
-# Habilitar CORS para todas as rotas
-CORS(app)
-
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(projects_bp, url_prefix='/api')
 app.register_blueprint(developers_bp, url_prefix='/api')
@@ -50,4 +47,4 @@ def serve(path):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=False, ssl_context=('cert.crt', 'cert.key'))
+    app.run(host='0.0.0.0', port=8000, debug=False)

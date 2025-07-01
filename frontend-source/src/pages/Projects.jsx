@@ -301,7 +301,7 @@ const Projects = ({ projects, setProjects, timeEntries, developers, reloadProjec
                     <th>Progresso</th>
                     <th>Horas Disponíveis</th>
                     <th>Criado em</th>
-                    <th>Valor Gasto</th>
+                     
                     <th style={{ textAlign: 'center' }}>Ações</th>
                   </tr>
                 </thead>
@@ -348,9 +348,6 @@ const Projects = ({ projects, setProjects, timeEntries, developers, reloadProjec
                         </td>
                         <td>
                           {new Date(project.createdAt).toLocaleDateString('pt-BR')}
-                        </td>
-                        <td style={{ fontWeight: '600', color: 'var(--success-600)' }}>
-                          R$ {valueSpent.toFixed(2)}
                         </td>
                         <td style={{ textAlign: 'center' }}>
                           <button

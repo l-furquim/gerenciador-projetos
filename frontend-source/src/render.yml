@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: gerenciador-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        value: 10000  # Porta padrão da Render
+      - key: DATABASE_URL
+        fromDatabase:
+          name: meu-banco
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true  # Gera automaticamente
+      - key: CORS_ORIGIN
+        value: https://meu-frontend.onrender.com
+    # SSL/HTTPS é automático na Render - não precisa configurar certificados
